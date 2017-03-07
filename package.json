@@ -1,0 +1,34 @@
+{
+  "name": "personal_react_components",
+  "version": "1.0.0",
+  "description": "components customized for my sites",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ReductioAbsurdum/personal_react_componenets.git"
+  },
+  "keywords": [
+    "photo_slider"
+  ],
+  "author": "Ben",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ReductioAbsurdum/personal_react_componenets/issues"
+  },
+  "homepage": "https://github.com/ReductioAbsurdum/personal_react_componenets#readme",
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.4.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "webpack": "^1.13.2"
+  }
+}
