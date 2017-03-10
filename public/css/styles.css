@@ -1,3 +1,108 @@
+#component{
+  border: solid 1px black;
+  width: 55%;
+  padding: 10px;
+}
+
+/*BEGINNING OF FORM COMPONENT STYLES*/
+h1{
+  text-align: center;
+}
+.wrapper{
+  border: solid 1px red;
+}
+.steps_wrapper{
+  height: 12%;
+  /*border: solid 1px red;*/
+  color: #CDCDCD;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.step_wrapper{
+  position: relative;
+  /*border: solid 1px black;*/
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.step{
+  height: 100%;
+  width: 40px;
+  border: solid 3px #CDCDCD;
+  border-radius: 20px;
+  box-sizing: border-box;
+  line-height: 35px;
+  font-size: 1.4em;
+  margin: auto;
+  z-index: 2;
+  background-color: #FFF;
+}
+
+.selected{
+  color: #A53E42;
+  border-color: #A53E42;
+}
+
+.selected .step{
+  border-color: #A53E42;
+}
+
+.line{
+  position: absolute;
+  top: 30px;
+  margin-left: 30px;
+  width: 200px;
+  height: 3px;
+  display: inline-block;
+  background-color: #CDCDCD;
+  vertical-align: top;
+}
+
+.form_description_wrapper{
+  border: solid 3px #CDCDCD;
+  border-radius: 5px;
+  padding: 0px 15px 15px 15px;
+}
+
+.description{
+  font-family: sans-serif;
+}
+
+button{
+  font-family: Coustard,"Palatino Linotype","Book Antiqua",Palatino,"Times New Roman",serif;
+  font-weight: bold;
+  padding: 10px;
+  height: 75px;
+  width: 160px;
+  box-shadow: 1px 1px 5px #1D1E1E;
+  background: linear-gradient(to bottom right, #EAE2D0, #f7d178);
+  outline: none;
+  font-size: 1.5rem;
+  border-color: #A53E42;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.form_description_wrapper button{
+  width: 100%;
+  height: 100%;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.form_description_wrapper input{
+  display: block;
+}
+
+.form_inline_block{
+  display: inline-block;
+}
+
+
+/*END OF FORM COMPONENT STYLES*/
+
+/* BEGINNING OF Slider Component Styles:
+
 .slider_wrapper{
   width: 100%;
 }
@@ -34,3 +139,4 @@ img{
   height: 100%;
   object-fit: cover;
 }
+END OF Slider Component Styles*/

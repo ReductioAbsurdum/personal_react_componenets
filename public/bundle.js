@@ -54,15 +54,18 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Slider = __webpack_require__(178);
+	var _orderForm = __webpack_require__(178);
 
-	var _Slider2 = _interopRequireDefault(_Slider);
+	var _orderForm2 = _interopRequireDefault(_orderForm);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var images = ["images/spore1.png", "images/spore2.png", "images/spore3.png", "images/spore4.png", "images/spore5.png"];
+	//var images = ["images/spore1.png", "images/spore2.png", "images/spore3.png", "images/spore4.png", "images/spore5.png"]
 
-	_reactDom2.default.render(_react2.default.createElement(_Slider2.default, { images: images }), document.getElementById('component'));
+	//ReactDOM.render(<Slider images={images}/>, document.getElementById('component'));
+
+	_reactDom2.default.render(_react2.default.createElement(_orderForm2.default, null), document.getElementById('component'));
+	//import Slider from './components/Slider';
 
 /***/ },
 /* 1 */
@@ -21544,6 +21547,386 @@
 /* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(32);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _FormOne = __webpack_require__(179);
+
+	var _FormOne2 = _interopRequireDefault(_FormOne);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var OrderForm = function (_React$Component) {
+	  _inherits(OrderForm, _React$Component);
+
+	  function OrderForm(props) {
+	    _classCallCheck(this, OrderForm);
+
+	    var _this = _possibleConstructorReturn(this, (OrderForm.__proto__ || Object.getPrototypeOf(OrderForm)).call(this, props));
+
+	    _this.state = { orderSection: 0, price: 259.95 };
+	    return _this;
+	  }
+
+	  _createClass(OrderForm, [{
+	    key: 'changeSection',
+	    value: function changeSection(num) {
+	      if (num === 2) {
+	        this.setState({
+	          form: {
+	            e: this.refs.email.value,
+	            n1: this.refs.first_name.value,
+	            n2: this.refs.last_name.value,
+	            a: this.refs.address.value,
+	            c: this.refs.city.value,
+	            s: this.refs.state.value,
+	            z: this.refs.zip.value,
+	            co: this.refs.country.value,
+	            qty: this.refs.qty.value
+	          },
+	          price: this.refs.price.value
+	        });
+	      }
+	      this.setState({
+	        orderSection: num
+	      });
+	    }
+	  }, {
+	    key: 'isSelected',
+	    value: function isSelected(num) {
+	      return this.state.orderSection === num ? ' selected' : '';
+	    }
+	  }, {
+	    key: 'allDone',
+	    value: function allDone() {
+	      console.log("ALL DONE!");
+	      console.log(this.state);
+	    }
+	  }, {
+	    key: 'updatePrince',
+	    value: function updatePrince() {
+	      this.setState({
+	        price: Math.floor(259.95 * this.refs.qty.value)
+	      });
+	      console.log(this.state);
+	    }
+	  }, {
+	    key: 'orderSection',
+	    value: function orderSection() {
+	      if (this.state.orderSection === 0) {
+	        return _react2.default.createElement(_FormOne2.default, { changeSection: this.changeSection.bind(this, 1) });
+	      } else if (this.state.orderSection === 1) {
+	        return _react2.default.createElement(
+	          'div',
+	          { className: 'description' },
+	          _react2.default.createElement(
+	            'form',
+	            null,
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'order_email' },
+	              _react2.default.createElement(
+	                'label',
+	                { htmlFor: 'email' },
+	                'Email:'
+	              ),
+	              _react2.default.createElement('input', { type: 'email', name: 'email', ref: 'email' })
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'form_inline_block' },
+	              _react2.default.createElement(
+	                'label',
+	                { htmlFor: 'first_name' },
+	                'First Name:'
+	              ),
+	              _react2.default.createElement('input', { type: 'text', name: 'first_name', ref: 'first_name' })
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'form_inline_block' },
+	              _react2.default.createElement(
+	                'label',
+	                { htmlFor: 'last_name' },
+	                'Last Name:'
+	              ),
+	              _react2.default.createElement('input', { type: 'text', name: 'last_name', ref: 'last_name' })
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'address' },
+	              _react2.default.createElement(
+	                'label',
+	                { htmlFor: 'address' },
+	                'Address:'
+	              ),
+	              _react2.default.createElement('input', { type: 'text', name: 'address', ref: 'address' })
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'form_inline_block' },
+	              _react2.default.createElement(
+	                'label',
+	                { htmlFor: 'city' },
+	                'City:'
+	              ),
+	              _react2.default.createElement('input', { type: 'text', name: 'city', ref: 'city' })
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'form_inline_block' },
+	              _react2.default.createElement(
+	                'label',
+	                { htmlFor: 'state' },
+	                'State:'
+	              ),
+	              _react2.default.createElement('input', { type: 'text', name: 'state', ref: 'state' })
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'form_inline_block' },
+	              _react2.default.createElement(
+	                'label',
+	                { htmlFor: 'zip' },
+	                'Zip Code:'
+	              ),
+	              _react2.default.createElement('input', { type: 'text', name: 'zip', ref: 'zip' })
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'country' },
+	              _react2.default.createElement(
+	                'label',
+	                { htmlFor: 'country' },
+	                'Country:'
+	              ),
+	              _react2.default.createElement(
+	                'select',
+	                { name: 'country', ref: 'country' },
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'US' },
+	                  'United States'
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'qty' },
+	              _react2.default.createElement(
+	                'label',
+	                { htmlFor: 'qty' },
+	                'Order Quantity:'
+	              ),
+	              _react2.default.createElement(
+	                'select',
+	                { type: 'text', name: 'qty', ref: 'qty', onChange: this.updatePrince.bind(this) },
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: '1' },
+	                  '1'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: '2' },
+	                  '2'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: '3' },
+	                  '3'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: '4' },
+	                  '4'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: '5' },
+	                  '5'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: '6' },
+	                  '6'
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'price' },
+	              _react2.default.createElement(
+	                'label',
+	                { htmlFor: 'price' },
+	                'Price: '
+	              ),
+	              _react2.default.createElement(
+	                'span',
+	                { ref: 'price' },
+	                this.state.price
+	              )
+	            )
+	          ),
+	          _react2.default.createElement('hr', null),
+	          _react2.default.createElement(
+	            'button',
+	            { type: 'button', name: 'button', onClick: this.changeSection.bind(this, 2) },
+	            'Next >'
+	          )
+	        );
+	      } else if (this.state.orderSection === 2) {
+	        return _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'SECTION 3'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            this.state.form.n1
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            this.state.form.n2
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            this.state.form.e
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            this.state.form.c
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            this.state.form.s
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            this.state.form.co
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            this.state.form.qty
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            this.state.price
+	          ),
+	          _react2.default.createElement(
+	            'button',
+	            { type: 'button', name: 'button', onClick: this.allDone.bind(this) },
+	            'Submit'
+	          )
+	        );
+	      }
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'wrapper' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'steps_wrapper' },
+	          _react2.default.createElement('div', { className: 'line' }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: "step_wrapper" + this.isSelected(0) },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'step' },
+	              '1'
+	            ),
+	            _react2.default.createElement(
+	              'span',
+	              null,
+	              'Item Info'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: "step_wrapper" + this.isSelected(1) },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'step' },
+	              '2'
+	            ),
+	            _react2.default.createElement(
+	              'span',
+	              null,
+	              'Order Form'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: "step_wrapper" + this.isSelected(2) },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'step' },
+	              '3'
+	            ),
+	            _react2.default.createElement(
+	              'span',
+	              null,
+	              'Purchase'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'The Terraform Spore Lamp'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'form_description_wrapper' },
+	          this.orderSection()
+	        )
+	      );
+	    }
+	  }]);
+
+	  return OrderForm;
+	}(_react2.default.Component);
+
+	exports.default = OrderForm;
+
+/***/ },
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
@@ -21564,64 +21947,55 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Slider = function (_React$Component) {
-	  _inherits(Slider, _React$Component);
+	var FormOne = function (_React$Component) {
+	  _inherits(FormOne, _React$Component);
 
-	  function Slider(props) {
-	    _classCallCheck(this, Slider);
+	  function FormOne() {
+	    _classCallCheck(this, FormOne);
 
-	    var _this = _possibleConstructorReturn(this, (Slider.__proto__ || Object.getPrototypeOf(Slider)).call(this, props));
-
-	    _this.state = { currentImg: 0 };
-	    return _this;
+	    return _possibleConstructorReturn(this, (FormOne.__proto__ || Object.getPrototypeOf(FormOne)).apply(this, arguments));
 	  }
 
-	  _createClass(Slider, [{
-	    key: "increase",
-	    value: function increase() {
-	      this.setState({
-	        currentImg: ++this.state.currentImg % 5
-	      });
-	    }
-	  }, {
-	    key: "updateCurrentImg",
-	    value: function updateCurrentImg(e) {
-	      this.setState({
-	        currentImg: e.target.id
-	      });
-	    }
-	  }, {
+	  _createClass(FormOne, [{
 	    key: "render",
 	    value: function render() {
-	      var _this2 = this;
-
 	      return _react2.default.createElement(
 	        "div",
-	        { className: "slider_wrapper" },
+	        { className: "description" },
 	        _react2.default.createElement(
-	          "div",
-	          { className: "slider_image_present", onClick: this.increase.bind(this) },
-	          _react2.default.createElement("img", { src: this.props.images[this.state.currentImg] })
+	          "p",
+	          null,
+	          "The Spore Lamp is created using a total of 159 separate, 1/4 inch thick interlocking pieces. It is created out of Birch Plywood, and 3 different finishes are currently available, with additional finishes and choices of types of wood to choose from, coming in the future."
 	        ),
 	        _react2.default.createElement(
-	          "div",
-	          { className: "thumb_holder" },
-	          Object.keys(this.props.images).map(function (img) {
-	            return _react2.default.createElement(
-	              "div",
-	              { key: img, className: "thumb" },
-	              _react2.default.createElement("img", { id: img, src: _this2.props.images[img], onClick: _this2.updateCurrentImg.bind(_this2) })
-	            );
-	          })
+	          "p",
+	          null,
+	          "The Spore Lamp was created using algorithmic modeling & parametric design in order to create an eco-friendly, all USA Made lighting fixture entirely cut & crafted using laser cutting machines.  As part of the Terraform Design movement, our projects are based off of organic, natural flowing shapes found in nature, and exist as a marriage between landscape & technology."
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          null,
+	          "Dimensions: 16 inches (length & width) by 13 inches (height)"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          null,
+	          "Price: $259.95  **Free Shipping**"
+	        ),
+	        _react2.default.createElement("hr", null),
+	        _react2.default.createElement(
+	          "button",
+	          { type: "button", name: "button", onClick: this.props.changeSection },
+	          "Order Now"
 	        )
 	      );
 	    }
 	  }]);
 
-	  return Slider;
+	  return FormOne;
 	}(_react2.default.Component);
 
-	exports.default = Slider;
+	exports.default = FormOne;
 
 /***/ }
 /******/ ]);
