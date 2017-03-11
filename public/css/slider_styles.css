@@ -1,0 +1,42 @@
+#component{
+  border: solid 1px black;
+  width: 55%;
+  padding: 10px;
+}
+
+.slider_wrapper{
+  width: 100%;
+}
+
+.slider_image_present{
+  height: 300px;
+  width: 300px;
+  border: solid 1px black;
+}
+
+img{
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.thumb_holder{
+  width: 300px;
+  height: 50px;
+  border: solid 1px black;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.thumb{
+  width: 20%;
+  height: 100%;
+  margin: 0;
+  display: inline-block;
+}
+
+.thumb img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

@@ -54,9 +54,9 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _orderForm = __webpack_require__(178);
+	var _Stripe = __webpack_require__(178);
 
-	var _orderForm2 = _interopRequireDefault(_orderForm);
+	var _Stripe2 = _interopRequireDefault(_Stripe);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -64,7 +64,7 @@
 
 	//ReactDOM.render(<Slider images={images}/>, document.getElementById('component'));
 
-	_reactDom2.default.render(_react2.default.createElement(_orderForm2.default, null), document.getElementById('component'));
+	_reactDom2.default.render(_react2.default.createElement(_Stripe2.default, null), document.getElementById('component'));
 	//import Slider from './components/Slider';
 
 /***/ },
@@ -21559,13 +21559,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(32);
+	var _Info = __webpack_require__(179);
 
-	var _reactDom2 = _interopRequireDefault(_reactDom);
+	var _Info2 = _interopRequireDefault(_Info);
 
-	var _FormOne = __webpack_require__(179);
+	var _StripeOrder = __webpack_require__(180);
 
-	var _FormOne2 = _interopRequireDefault(_FormOne);
+	var _StripeOrder2 = _interopRequireDefault(_StripeOrder);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21575,37 +21575,21 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var OrderForm = function (_React$Component) {
-	  _inherits(OrderForm, _React$Component);
+	var Stripe = function (_React$Component) {
+	  _inherits(Stripe, _React$Component);
 
-	  function OrderForm(props) {
-	    _classCallCheck(this, OrderForm);
+	  function Stripe(props) {
+	    _classCallCheck(this, Stripe);
 
-	    var _this = _possibleConstructorReturn(this, (OrderForm.__proto__ || Object.getPrototypeOf(OrderForm)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (Stripe.__proto__ || Object.getPrototypeOf(Stripe)).call(this, props));
 
-	    _this.state = { orderSection: 0, price: 259.95 };
+	    _this.state = { orderSection: 0 };
 	    return _this;
 	  }
 
-	  _createClass(OrderForm, [{
+	  _createClass(Stripe, [{
 	    key: 'changeSection',
 	    value: function changeSection(num) {
-	      if (num === 2) {
-	        this.setState({
-	          form: {
-	            e: this.refs.email.value,
-	            n1: this.refs.first_name.value,
-	            n2: this.refs.last_name.value,
-	            a: this.refs.address.value,
-	            c: this.refs.city.value,
-	            s: this.refs.state.value,
-	            z: this.refs.zip.value,
-	            co: this.refs.country.value,
-	            qty: this.refs.qty.value
-	          },
-	          price: this.refs.price.value
-	        });
-	      }
 	      this.setState({
 	        orderSection: num
 	      });
@@ -21616,237 +21600,30 @@
 	      return this.state.orderSection === num ? ' selected' : '';
 	    }
 	  }, {
-	    key: 'allDone',
-	    value: function allDone() {
-	      console.log("ALL DONE!");
-	      console.log(this.state);
-	    }
-	  }, {
-	    key: 'updatePrince',
-	    value: function updatePrince() {
-	      this.setState({
-	        price: Math.floor(259.95 * this.refs.qty.value)
-	      });
-	      console.log(this.state);
-	    }
-	  }, {
 	    key: 'orderSection',
 	    value: function orderSection() {
 	      if (this.state.orderSection === 0) {
-	        return _react2.default.createElement(_FormOne2.default, { changeSection: this.changeSection.bind(this, 1) });
+	        return _react2.default.createElement(_Info2.default, { changeSection: this.changeSection.bind(this, 1) });
 	      } else if (this.state.orderSection === 1) {
-	        return _react2.default.createElement(
-	          'div',
-	          { className: 'description' },
-	          _react2.default.createElement(
-	            'form',
-	            null,
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'order_email' },
-	              _react2.default.createElement(
-	                'label',
-	                { htmlFor: 'email' },
-	                'Email:'
-	              ),
-	              _react2.default.createElement('input', { type: 'email', name: 'email', ref: 'email' })
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'form_inline_block' },
-	              _react2.default.createElement(
-	                'label',
-	                { htmlFor: 'first_name' },
-	                'First Name:'
-	              ),
-	              _react2.default.createElement('input', { type: 'text', name: 'first_name', ref: 'first_name' })
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'form_inline_block' },
-	              _react2.default.createElement(
-	                'label',
-	                { htmlFor: 'last_name' },
-	                'Last Name:'
-	              ),
-	              _react2.default.createElement('input', { type: 'text', name: 'last_name', ref: 'last_name' })
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'address' },
-	              _react2.default.createElement(
-	                'label',
-	                { htmlFor: 'address' },
-	                'Address:'
-	              ),
-	              _react2.default.createElement('input', { type: 'text', name: 'address', ref: 'address' })
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'form_inline_block' },
-	              _react2.default.createElement(
-	                'label',
-	                { htmlFor: 'city' },
-	                'City:'
-	              ),
-	              _react2.default.createElement('input', { type: 'text', name: 'city', ref: 'city' })
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'form_inline_block' },
-	              _react2.default.createElement(
-	                'label',
-	                { htmlFor: 'state' },
-	                'State:'
-	              ),
-	              _react2.default.createElement('input', { type: 'text', name: 'state', ref: 'state' })
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'form_inline_block' },
-	              _react2.default.createElement(
-	                'label',
-	                { htmlFor: 'zip' },
-	                'Zip Code:'
-	              ),
-	              _react2.default.createElement('input', { type: 'text', name: 'zip', ref: 'zip' })
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'country' },
-	              _react2.default.createElement(
-	                'label',
-	                { htmlFor: 'country' },
-	                'Country:'
-	              ),
-	              _react2.default.createElement(
-	                'select',
-	                { name: 'country', ref: 'country' },
-	                _react2.default.createElement(
-	                  'option',
-	                  { value: 'US' },
-	                  'United States'
-	                )
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'qty' },
-	              _react2.default.createElement(
-	                'label',
-	                { htmlFor: 'qty' },
-	                'Order Quantity:'
-	              ),
-	              _react2.default.createElement(
-	                'select',
-	                { type: 'text', name: 'qty', ref: 'qty', onChange: this.updatePrince.bind(this) },
-	                _react2.default.createElement(
-	                  'option',
-	                  { value: '1' },
-	                  '1'
-	                ),
-	                _react2.default.createElement(
-	                  'option',
-	                  { value: '2' },
-	                  '2'
-	                ),
-	                _react2.default.createElement(
-	                  'option',
-	                  { value: '3' },
-	                  '3'
-	                ),
-	                _react2.default.createElement(
-	                  'option',
-	                  { value: '4' },
-	                  '4'
-	                ),
-	                _react2.default.createElement(
-	                  'option',
-	                  { value: '5' },
-	                  '5'
-	                ),
-	                _react2.default.createElement(
-	                  'option',
-	                  { value: '6' },
-	                  '6'
-	                )
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'price' },
-	              _react2.default.createElement(
-	                'label',
-	                { htmlFor: 'price' },
-	                'Price: '
-	              ),
-	              _react2.default.createElement(
-	                'span',
-	                { ref: 'price' },
-	                this.state.price
-	              )
-	            )
-	          ),
-	          _react2.default.createElement('hr', null),
-	          _react2.default.createElement(
-	            'button',
-	            { type: 'button', name: 'button', onClick: this.changeSection.bind(this, 2) },
-	            'Next >'
-	          )
-	        );
+	        return _react2.default.createElement(_StripeOrder2.default, { changeSection: this.changeSection.bind(this, 2) });
 	      } else if (this.state.orderSection === 2) {
 	        return _react2.default.createElement(
 	          'div',
-	          null,
+	          { className: 'finish' },
 	          _react2.default.createElement(
-	            'p',
+	            'h3',
 	            null,
-	            'SECTION 3'
+	            'Thank You For Your Purchase'
 	          ),
 	          _react2.default.createElement(
 	            'p',
 	            null,
-	            this.state.form.n1
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            this.state.form.n2
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            this.state.form.e
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            this.state.form.c
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            this.state.form.s
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            this.state.form.co
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            this.state.form.qty
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            this.state.price
+	            'If you have any questions or concerns with your purchase feel free to get in contact with us.'
 	          ),
 	          _react2.default.createElement(
 	            'button',
-	            { type: 'button', name: 'button', onClick: this.allDone.bind(this) },
-	            'Submit'
+	            { type: 'button', name: 'button', onClick: this.changeSection.bind(this, 0) },
+	            'Back to Item Info'
 	          )
 	        );
 	      }
@@ -21900,14 +21677,14 @@
 	            _react2.default.createElement(
 	              'span',
 	              null,
-	              'Purchase'
+	              'Thank You'
 	            )
 	          )
 	        ),
 	        _react2.default.createElement(
 	          'h1',
 	          null,
-	          'The Terraform Spore Lamp'
+	          'Lorem ipsum dolor'
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -21918,10 +21695,10 @@
 	    }
 	  }]);
 
-	  return OrderForm;
+	  return Stripe;
 	}(_react2.default.Component);
 
-	exports.default = OrderForm;
+	exports.default = Stripe;
 
 /***/ },
 /* 179 */
@@ -21947,16 +21724,16 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var FormOne = function (_React$Component) {
-	  _inherits(FormOne, _React$Component);
+	var Info = function (_React$Component) {
+	  _inherits(Info, _React$Component);
 
-	  function FormOne() {
-	    _classCallCheck(this, FormOne);
+	  function Info() {
+	    _classCallCheck(this, Info);
 
-	    return _possibleConstructorReturn(this, (FormOne.__proto__ || Object.getPrototypeOf(FormOne)).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Info.__proto__ || Object.getPrototypeOf(Info)).apply(this, arguments));
 	  }
 
-	  _createClass(FormOne, [{
+	  _createClass(Info, [{
 	    key: "render",
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -21965,17 +21742,17 @@
 	        _react2.default.createElement(
 	          "p",
 	          null,
-	          "The Spore Lamp is created using a total of 159 separate, 1/4 inch thick interlocking pieces. It is created out of Birch Plywood, and 3 different finishes are currently available, with additional finishes and choices of types of wood to choose from, coming in the future."
+	          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tempor quam a sapien dapibus tempor. Quisque vel vestibulum ligula. Sed pretium purus ut mi congue, vel ornare magna bibendum. Aenean efficitur tincidunt odio feugiat tristique. Curabitur libero urna, tempor et tortor ut, viverra finibus purus. In sit amet nisi sed ex congue feugiat eu vitae ipsum."
 	        ),
 	        _react2.default.createElement(
 	          "p",
 	          null,
-	          "The Spore Lamp was created using algorithmic modeling & parametric design in order to create an eco-friendly, all USA Made lighting fixture entirely cut & crafted using laser cutting machines.  As part of the Terraform Design movement, our projects are based off of organic, natural flowing shapes found in nature, and exist as a marriage between landscape & technology."
+	          "Aliquam risus ex, porta a euismod vel, consectetur in nibh. Sed tellus leo, venenatis et nulla in, pretium aliquet ante. Phasellus porta imperdiet justo quis blandit. Mauris sapien nulla, lobortis non sagittis eu, lacinia vel neque."
 	        ),
 	        _react2.default.createElement(
 	          "p",
 	          null,
-	          "Dimensions: 16 inches (length & width) by 13 inches (height)"
+	          "Morbi suscipit iaculis turpis, vitae ornare purus posuere ut. Mauris elit erat, tempor eget velit eget, euismod mollis nisl."
 	        ),
 	        _react2.default.createElement(
 	          "p",
@@ -21992,10 +21769,496 @@
 	    }
 	  }]);
 
-	  return FormOne;
+	  return Info;
 	}(_react2.default.Component);
 
-	exports.default = FormOne;
+	exports.default = Info;
+
+/***/ },
+/* 180 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var StripeOrder = function (_React$Component) {
+	  _inherits(StripeOrder, _React$Component);
+
+	  function StripeOrder(props) {
+	    _classCallCheck(this, StripeOrder);
+
+	    var _this2 = _possibleConstructorReturn(this, (StripeOrder.__proto__ || Object.getPrototypeOf(StripeOrder)).call(this, props));
+
+	    _this2.empty = [];
+	    _this2.stripe = Stripe(); //Insert Test Public Key from Stripe
+	    _this2.card = _this2.stripe.elements().create('card', {
+	      hidePostalCode: true,
+	      style: {
+	        base: {
+	          iconColor: '#666EE8',
+	          color: '#31325F',
+	          lineHeight: '40px',
+	          fontWeight: 300,
+	          fontFamily: 'Helvetica Neue',
+	          fontSize: '15px',
+	          '::placeholder': {
+	            color: '#aeb7c1'
+	          }
+	        }
+	      }
+	    });
+	    return _this2;
+	  }
+
+	  _createClass(StripeOrder, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.card.mount(document.getElementById('card_element'));
+	    }
+	  }, {
+	    key: 'verify',
+	    value: function verify() {
+	      if (!this.refs.email.value) {
+	        this.empty.push("Email");
+	      }
+	      if (!this.refs.name.value) {
+	        this.empty.push("Full Name");
+	      }
+	      if (!this.refs.address.value) {
+	        this.empty.push("Address");
+	      }
+	      if (!this.refs.city.value) {
+	        this.empty.push("City");
+	      }
+	      if (!this.refs.state.value) {
+	        this.empty.push("State");
+	      }
+	      if (!this.refs.zip_code.value) {
+	        this.empty.push("Postal Code");
+	      }
+	    }
+	  }, {
+	    key: 'submit',
+	    value: function submit(e) {
+	      e.preventDefault();
+	      var DOMerror = document.getElementById('error');
+	      DOMerror.textContent = "";
+	      this.verify();
+	      if (this.empty.length > 0) {
+	        DOMerror.textContent = 'Please fill out the following sections: ' + this.empty.join(", ") + ' ... Thank You!';
+	        this.empty = [];
+	        return;
+	      }
+
+	      var metadata = {
+	        name: this.refs.name.value,
+	        address_city: this.refs.city.value,
+	        address_line1: this.refs.address.value,
+	        address_state: this.refs.state.value,
+	        address_zip: this.refs.zip_code.value,
+	        email: this.refs.email.value
+	      };
+
+	      var _this = this;
+	      this.stripe.createToken(this.card, metadata).then(function (result) {
+	        if (result.error) {
+	          DOMerror.textContent = result.error.message;
+	        } else {
+	          console.log(result);
+	          console.log("Time to send to server to complete charge!");
+	          //send result in ajax post request to /charge (on the server we create the charge that sends to stripe)
+	          _this.props.changeSection();
+	        }
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'orderform_wrapper' },
+	        _react2.default.createElement(
+	          'form',
+	          null,
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'group' },
+	            _react2.default.createElement(
+	              'label',
+	              null,
+	              _react2.default.createElement(
+	                'span',
+	                null,
+	                'Email'
+	              ),
+	              _react2.default.createElement('input', { className: 'field', type: 'email', ref: 'email', placeholder: 'your@email.com', required: true })
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'group' },
+	            _react2.default.createElement(
+	              'label',
+	              null,
+	              _react2.default.createElement(
+	                'span',
+	                null,
+	                'Full Name'
+	              ),
+	              _react2.default.createElement('input', { className: 'field', type: 'text', ref: 'name', placeholder: 'chow main', required: true })
+	            ),
+	            _react2.default.createElement(
+	              'label',
+	              null,
+	              _react2.default.createElement(
+	                'span',
+	                null,
+	                'Address'
+	              ),
+	              _react2.default.createElement('input', { className: 'field', type: 'text', ref: 'address', placeholder: '666 satan st.', required: true })
+	            ),
+	            _react2.default.createElement(
+	              'label',
+	              null,
+	              _react2.default.createElement(
+	                'span',
+	                null,
+	                'City'
+	              ),
+	              _react2.default.createElement('input', { className: 'field', type: 'text', ref: 'city', placeholder: 'hell', required: true })
+	            ),
+	            _react2.default.createElement(
+	              'label',
+	              { htmlFor: 'state' },
+	              _react2.default.createElement(
+	                'span',
+	                null,
+	                'State'
+	              ),
+	              _react2.default.createElement(
+	                'select',
+	                { className: 'field', ref: 'state', required: true },
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: '' },
+	                  'Select State'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'AL' },
+	                  'Alabama'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'AK' },
+	                  'Alaska'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'AZ' },
+	                  'Arizona'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'AR' },
+	                  'Arkansas'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'CA' },
+	                  'California'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'CO' },
+	                  'Colorado'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'CT' },
+	                  'Connecticut'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'DE' },
+	                  'Delaware'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'DC' },
+	                  'District Of Columbia'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'FL' },
+	                  'Florida'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'GA' },
+	                  'Georgia'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'HI' },
+	                  'Hawaii'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'ID' },
+	                  'Idaho'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'IL' },
+	                  'Illinois'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'IN' },
+	                  'Indiana'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'IA' },
+	                  'Iowa'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'KS' },
+	                  'Kansas'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'KY' },
+	                  'Kentucky'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'LA' },
+	                  'Louisiana'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'ME' },
+	                  'Maine'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'MD' },
+	                  'Maryland'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'MA' },
+	                  'Massachusetts'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'MI' },
+	                  'Michigan'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'MN' },
+	                  'Minnesota'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'MS' },
+	                  'Mississippi'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'MO' },
+	                  'Missouri'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'MT' },
+	                  'Montana'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'NE' },
+	                  'Nebraska'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'NV' },
+	                  'Nevada'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'NH' },
+	                  'New Hampshire'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'NJ' },
+	                  'New Jersey'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'NM' },
+	                  'New Mexico'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'NY' },
+	                  'New York'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'NC' },
+	                  'North Carolina'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'ND' },
+	                  'North Dakota'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'OH' },
+	                  'Ohio'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'OK' },
+	                  'Oklahoma'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'OR' },
+	                  'Oregon'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'PA' },
+	                  'Pennsylvania'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'RI' },
+	                  'Rhode Island'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'SC' },
+	                  'South Carolina'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'SD' },
+	                  'South Dakota'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'TN' },
+	                  'Tennessee'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'TX' },
+	                  'Texas'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'UT' },
+	                  'Utah'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'VT' },
+	                  'Vermont'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'VA' },
+	                  'Virginia'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'WA' },
+	                  'Washington'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'WV' },
+	                  'West Virginia'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'WI' },
+	                  'Wisconsin'
+	                ),
+	                _react2.default.createElement(
+	                  'option',
+	                  { value: 'WY' },
+	                  'Wyoming'
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'label',
+	              null,
+	              _react2.default.createElement(
+	                'span',
+	                null,
+	                'Postal Code'
+	              ),
+	              _react2.default.createElement('input', { className: 'field', type: 'text', ref: 'zip_code', placeholder: '66666', required: true })
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'group' },
+	            _react2.default.createElement(
+	              'label',
+	              null,
+	              _react2.default.createElement(
+	                'span',
+	                null,
+	                'Card Info'
+	              ),
+	              _react2.default.createElement('div', { className: 'field', id: 'card_element' })
+	            )
+	          ),
+	          _react2.default.createElement('div', { id: 'error' }),
+	          _react2.default.createElement('hr', null),
+	          _react2.default.createElement(
+	            'button',
+	            { type: 'submit', onClick: this.submit.bind(this) },
+	            'Submit Purchase'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return StripeOrder;
+	}(_react2.default.Component);
+
+	;
+	exports.default = StripeOrder;
 
 /***/ }
 /******/ ]);
